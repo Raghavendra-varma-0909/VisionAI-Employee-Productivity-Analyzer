@@ -1,52 +1,146 @@
-# IdleVision-AI 🧠🎥
-### AI-Driven Employee Productivity & Idle Detection System
+# 🧠 VisionAI – Employee Productivity Analyzer
 
-**IdleVision-AI** is an AI-powered **computer vision system** that monitors employee activity through live video analysis.  
-It detects idle or inactive behavior in real time and provides **automated productivity insights** via a Streamlit dashboard.
+## 🚀 Overview
 
----
+VisionAI is an AI-powered real-time employee activity monitoring system that uses deep learning (CNN) and computer vision to analyze user behavior from live video feeds.
 
-## 🚀 Features
-- 🔍 Real-time activity detection using **MediaPipe Pose Estimation**
-- 📊 Live analytics dashboard built with **Streamlit + Plotly**
-- ⏱️ Logs live data every second (`live_status_log.csv`)
-- 🕒 Records idle events for HR reports (`idle_log.csv`)
-- ⚙️ Fully configurable thresholds and camera sources
-- 🌐 Deployable locally or on Streamlit Cloud
+The system classifies employee activity into four categories:
 
----
+* 🟢 Active
+* 🔴 Idle
+* 🟡 Distracted
+* ⚫ Absent
 
-## 🧰 Tech Stack
-| Category | Tools |
-|-----------|--------|
-| Programming | Python 3.10+ |
-| Computer Vision | OpenCV, MediaPipe |
-| Dashboard | Streamlit, Plotly |
-| Data | Pandas, NumPy |
-| ML (Optional) | TensorFlow / CNN |
-| Deployment | Streamlit Cloud / Localhost |
+It provides real-time insights into productivity and logs activity data for further analysis.
 
 ---
 
-## 📊 Project Overview
-IdleVision-AI enables organizations to:
-- Automatically monitor work efficiency  
-- Detect idle periods and generate monthly reports  
-- Enhance employee engagement and performance transparency  
+## 🔥 Key Features
+
+* 🎥 Real-time activity detection using webcam (OpenCV)
+* 🧠 Deep learning model (CNN) trained on custom dataset
+* 📊 Live activity logging (CSV-based tracking)
+* ⚡ Lightweight and runs locally
+* 🧩 Modular and scalable architecture
 
 ---
 
-## 🧠 Architecture
-```text
-[ Camera Feed ] 
-       ↓
-[ Pose Detection (MediaPipe) ]
-       ↓
-[ Movement Analysis ]
-       ↓
-[ Idle Detection Logic ]
-       ↓
-[ Live Data Logging ] ---> live_status_log.csv
-[ Idle Event Logger ] ---> idle_log.csv
-       ↓
-[ Streamlit Dashboard Visualization ]
+## 🧠 Tech Stack
+
+| Category        | Tools              |
+| --------------- | ------------------ |
+| Programming     | Python             |
+| Computer Vision | OpenCV             |
+| Deep Learning   | TensorFlow / Keras |
+| Data Handling   | NumPy, Pandas      |
+| Logging         | CSV                |
+
+---
+
+## 🧠 Model Details
+
+* Model Type: Convolutional Neural Network (CNN)
+* Input Size: 224 × 224
+* Classes: 4 (Active, Idle, Distracted, Absent)
+* Accuracy: ~90% (custom dataset)
+
+---
+
+## 📂 Project Structure
+
+```
+VisionAI-Employee-Productivity-Analyzer/
+│
+├── data/                  # Dataset (not included in repo)
+│   ├── active/
+│   ├── idle/
+│   ├── distracted/
+│   └── absent/
+│
+├── detector.py            # Real-time detection script
+├── train_model.py         # CNN training script
+├── utils.py               # Helper functions
+├── collect_data.py        # Dataset collection script
+├── requirements.txt       # Dependencies
+├── README.md
+```
+
+---
+
+## ⚙️ Workflow
+
+```
+Camera Feed → Frame Processing → CNN Model → Activity Prediction → Logging
+```
+
+---
+
+## 🚀 How to Run
+
+### 1. Clone Repository
+
+```bash
+git clone https://github.com/YOUR_USERNAME/VisionAI-Employee-Productivity-Analyzer.git
+cd VisionAI-Employee-Productivity-Analyzer
+```
+
+---
+
+### 2. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+### 3. Train Model (Optional)
+
+```bash
+python train_model.py
+```
+
+---
+
+### 4. Run Detector
+
+```bash
+python detector.py --employee_id E001
+```
+
+---
+
+## ⚠️ Note
+
+* Dataset and trained model are not included due to size constraints.
+* You can generate your own dataset using `collect_data.py`.
+
+---
+
+## 💼 Use Cases
+
+* Employee productivity monitoring
+* Workplace analytics
+* Smart office systems
+* Behavioral analysis using AI
+
+---
+
+## 🚧 Future Improvements
+
+* Add FastAPI backend for deployment
+* Replace CSV with database (MongoDB/PostgreSQL)
+* Add confidence score & alerts
+* Deploy on cloud (AWS/GCP)
+
+---
+
+## 👨‍💻 Author
+
+**Raghavendra Varma**
+
+---
+
+## ⭐ If you like this project
+
+Give it a ⭐ on GitHub!
